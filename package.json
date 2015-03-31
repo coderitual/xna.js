@@ -1,0 +1,23 @@
+{
+    "name": "xnajs",
+    "version": "0.0.1",
+    "description": "WebGL game library",
+    "main": "xna.js",
+    "scripts": {
+     
+    },
+    "keywords": [
+        "webgl",
+        "xna",
+        "gamedev"
+    ],
+    "author": "Michał Skowronek",
+    "license": "MIT",
+
+    "dependencies": {
+    },
+
+    "browserify": {
+        "transform": [ "brfs" ]
+    }
+}
