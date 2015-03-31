@@ -5,7 +5,7 @@ var Class = function() {};
 
 Class.extend = function(t) {
     function s() {
-        e || (this.create && this.create.apply(this, arguments))
+        e || (this.constructor && this.constructor.apply(this, arguments))
     }
     var n = this.prototype;
     e = true;
