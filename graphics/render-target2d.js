@@ -4,7 +4,7 @@ var RenderTarget2D = Texture2D.extend({
 
     constructor: function(graphicsDevice, width, height) {
 
-        this.base(graphicsDevice, width, height);
+        this.super(graphicsDevice, width, height);
 
         var gl = graphicsDevice.gl;
 
