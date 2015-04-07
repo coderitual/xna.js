@@ -39,21 +39,19 @@ Texture2D = Class.extend({
             // Scale up the texture to the next highest power of two dimensions.
             if (!isPowerOfTwo(this.width) || !isPowerOfTwo(this.height)) {
 
-                var canvas      = document.createElement("canvas");
+                var canvas      = document.createElement('canvas');
                 canvas.width    = nextHighestPowerOfTwo(this.width);
                 canvas.height   = nextHighestPowerOfTwo(this.height);
 
-                var ctx = canvas.getContext("2d");
+                var ctx = canvas.getContext('2d');
                 ctx.drawImage(this.data, 0, 0, this.width, this.height);
 
                 this.data = canvas;
                 this.width = this.data.width;
                 this.height = this.data.height;
-
-                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.data);
             }
 
-
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.data);
             gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
 
         }

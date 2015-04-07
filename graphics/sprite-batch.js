@@ -26,10 +26,7 @@ var SpriteBatch = function(graphicsDevice, size) {
     this._count         = 0;
 
     this._matrix        = mat4.create();
-    this._matrix[0]     = 2 / this.graphicsDevice.backBufferWidth;
-    this._matrix[5]     = -2 / this.graphicsDevice.backBufferHeight;
-    this._matrix[12]    = -1;
-    this._matrix[13]    = 1;
+    mat4.ortho(this._matrix, 0, this.graphicsDevice.backBufferWidth, this.graphicsDevice.backBufferHeight, 0, 0, 100);
 
     this._vertexBuffer  = new VertexBuffer(this.graphicsDevice, 2);
     this._uvBuffer      = new VertexBuffer(this.graphicsDevice, 2);
