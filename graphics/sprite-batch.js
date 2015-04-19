@@ -13,20 +13,20 @@ var SpriteEffectCode = fs.readFileSync(__dirname + '/shaders/sprite-effect.fx', 
 
 // helper matrix for transform operations
 var tmpMat3 = mat3.create();
+var tmpVec2 = vec2.create();
 
 var SpriteBatch = function(graphicsDevice, size) {
 
     this.graphicsDevice = graphicsDevice;
 
-    this._effect        = new Effect(this.graphicsDevice, SpriteEffectCode);
-    this._currentEffect = null;
-    this._blendState    = null;
+    this._defaultEffect = new Effect(this.graphicsDevice, SpriteEffectCode);
+    this._effect        = null;
 
     this._size          = size || 512;
     this._count         = 0;
 
     this._matrix        = mat4.create();
-    mat4.ortho(this._matrix, 0, this.graphicsDevice.backBufferWidth, this.graphicsDevice.backBufferHeight, 0, 0, 100);
+    this._projection    = mat4.create();
 
     this._vertexBuffer  = new VertexBuffer(this.graphicsDevice, 2);
     this._uvBuffer      = new VertexBuffer(this.graphicsDevice, 2);
@@ -42,23 +42,24 @@ SpriteBatch.prototype = {
 
     constructor: SpriteBatch,
 
-    begin: function(blendState, effect) {
+    begin: function(blendState, effect, matrix) {
 
         this._count = 0;
-        this._currentEffect = effect || this._effect;
-        this._currentEffect.apply();
+        this._effect = effect || this._defaultEffect;
+        this._effect.apply();
 
-        this._blendState = this.graphicsDevice.blendState;
+        this._matrix = matrix || mat4.identity(this._matrix);
+
         this.graphicsDevice.blendState = blendState || BlendState.ALPHA_BLEND;
+
+        mat4.ortho(this._projection, 0, this.graphicsDevice.backBufferWidth, this.graphicsDevice.backBufferHeight, 0, 0, 1);
+        mat4.multiply(this._projection, this._matrix, this._projection);
     },
 
     end: function() {
 
         this.flush();
-
-        this.graphicsDevice.blendState = this._blendState;
-        this._currentEffect = null;
-        this._blendState    = null;
+        this._effect = null;
     },
 
     flush: function() {
@@ -69,13 +70,13 @@ SpriteBatch.prototype = {
 
         var gl = this.graphicsDevice.gl;
 
-        var parameters = this._currentEffect.parameters;
+        var parameters = this._effect.parameters;
 
         if(parameters['position']) parameters['position'].setValue(this._vertexBuffer);
         if(parameters['color']) parameters['color'].setValue(this._colorBuffer);
         if(parameters['texCoord']) parameters['texCoord'].setValue(this._uvBuffer);
         if(parameters['Texture']) parameters['Texture'].setValue(this._texture);
-        if(parameters['ModelViewMatrix']) parameters['ModelViewMatrix'].setValue(this._matrix);
+        if(parameters['ViewProjectionMatrix']) parameters['ViewProjectionMatrix'].setValue(this._projection);
 
         this._vertexBuffer.setData(this._vertices);
         this._uvBuffer.setData(this._uvs);
@@ -203,17 +204,39 @@ SpriteBatch.prototype = {
         this._vertices[offset + 6]  = x + w;
         this._vertices[offset + 7]  = y + h;
 
-        // Transform
+        // Transform matrix
 
-        var transform = mat3.identity(tmpMat3);
-        mat3.translate(transform, transform, pos);
-        mat3.scale(transform, transform, scale)
-        mat3.rotate(transform, transform, rotation);
+        var m = mat3.fromTranslation(tmpMat3, pos);
+        mat3.rotate(m, m, rotation);
+        mat3.scale(m, m, scale);
 
-        // TODO: move it outside (optimise this)
-        vec2.forEach(this._vertices, 2, offset, 4, function(vec) {
-            vec2.transformMat3(vec, vec, transform);
-        });
+        var vertices = this._vertices;
+        var a, b;
+
+        a = vertices[offset];
+        b = vertices[offset + 1];
+        vertices[offset]     = m[0] * a + m[3] * b + m[6];
+        vertices[offset + 1] = m[1] * a + m[4] * b + m[7];
+
+        a = vertices[offset + 2];
+        b = vertices[offset + 3];
+        vertices[offset + 2] = m[0] * a + m[3] * b + m[6];
+        vertices[offset + 3] = m[1] * a + m[4] * b + m[7];
+
+        a = vertices[offset + 4];
+        b = vertices[offset + 5];
+        vertices[offset + 4] = m[0] * a + m[3] * b + m[6];
+        vertices[offset + 5] = m[1] * a + m[4] * b + m[7];
+
+        a = vertices[offset + 6];
+        b = vertices[offset + 7];
+        vertices[offset + 6] = m[0] * a + m[3] * b + m[6];
+        vertices[offset + 7] = m[1] * a + m[4] * b + m[7];
+
+        //// TODO: move it outside (optimise this)
+        //vec2.forEach(this._vertices, 2, offset, 4, function(vec) {
+        //    vec2.transformMat3(vec, vec, transform);
+        //});
 
         this._count++;
     },
@@ -341,9 +364,8 @@ SpriteBatch.prototype = {
         }
 
         // Transform
-
-        var transform = mat3.identity(tmpMat3);
-        mat3.translate(transform, transform, pos);
+        
+        var transform = mat3.fromTranslation(tmpMat3, pos);
         mat3.scale(transform, transform, scale)
         mat3.rotate(transform, transform, rotation);
 

@@ -7,10 +7,10 @@ attribute vec2 texCoord;
 varying vec2 _texCoord;
 varying vec4 _color;
 
-uniform mat4 ModelViewMatrix;
+uniform mat4 ViewProjectionMatrix;
 
 void main() {
-    gl_Position = ModelViewMatrix * vec4(position, 1.0);
+    gl_Position = ViewProjectionMatrix * vec4(position, 1.0);
     _texCoord = texCoord;
     _color = color;
 }

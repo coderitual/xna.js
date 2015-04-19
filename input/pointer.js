@@ -132,8 +132,8 @@ Pointer.prototype = {
         var window = this.window;
 
         item.id     = event.pointerId;
-        item.x      = (event.clientX - window.clientBounds.x) * window.scale.x;
-        item.y      = (event.clientY - window.clientBounds.y) * window.scale.y;
+        item.x      = (event.clientX - window.clientBounds.x) / window.scale.x;
+        item.y      = (event.clientY - window.clientBounds.y) / window.scale.y;
         item.state  = this.STATE_DOWN;
         item.type   = event.pointerType;
     },
@@ -155,9 +155,8 @@ Pointer.prototype = {
         var window = this.window;
         
         item.id     = event.pointerId;
-        item.x      = (event.clientX - window.clientBounds.x) * window.scale.x;
-        item.y      = (event.clientY - window.clientBounds.y) * window.scale.y;
-        item.state  = this.STATE_DOWN;
+        item.x      = (event.clientX - window.clientBounds.x) / window.scale.x;
+        item.y      = (event.clientY - window.clientBounds.y) / window.scale.y;
         item.type   = event.pointerType;
     },
     
