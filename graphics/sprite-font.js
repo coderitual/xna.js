@@ -10,7 +10,7 @@ var SpriteFont = function(graphicsDevice) {
 
     Object.defineProperty(this, 'isReady', {
         get: function () {
-            return this.texture.isReady() && this.glyphs;
+            return this.texture && this.texture.isReady && this.glyphs;
         }
     });
 };
@@ -25,6 +25,9 @@ SpriteFont.prototype = {
      */
     measureString: function(text) {
 
+        var result = [0, 0];
+
+        return result;
     }
 
 };
