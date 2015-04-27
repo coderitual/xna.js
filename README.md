@@ -1,4 +1,4 @@
-# XNA.JS
+# Xna.Js
 This is the first public version of xna.js. WebGL library strongly inspired by XNA/Monogame framework.
 The library is in the early stages. I'm writning it mainly to learn WebGL and create some demos. Still a lot to do here.
 
