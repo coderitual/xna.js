@@ -34,7 +34,7 @@ var EffectLoader = function(contentManager) {
             request.send(null);
         }
 
-        return spriteFont;
+        return effect;
     };
 };
 
