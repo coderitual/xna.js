@@ -1,3 +1,5 @@
+var BufferUsage = require('./buffer-usage');
+
 var VertexBuffer = function(graphicsDevice, chunkSize, usage) {
 
     var gl = graphicsDevice.gl;
@@ -5,7 +7,7 @@ var VertexBuffer = function(graphicsDevice, chunkSize, usage) {
     this.graphicsDevice = graphicsDevice;
     this.buffer         = gl.createBuffer();
     this.chunkSize      = chunkSize;
-    this.usage          = usage || gl.DYNAMIC_DRAW;
+    this.usage          = usage == BufferUsage.WRITE_ONLY ? gl.STATIC_DRAW : gl.DYNAMIC_DRAW;
     this.stride         = 0;
     this.startIndex     = 0;
     this.data           = null;
