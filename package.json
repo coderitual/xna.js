@@ -1,23 +1,26 @@
 {
-    "name": "xnajs",
-    "version": "0.0.1",
-    "description": "WebGL game library",
-    "main": "xna.js",
-    "scripts": {
-     
-    },
-    "keywords": [
-        "webgl",
-        "xna",
-        "gamedev"
-    ],
-    "author": "Michał Skowronek",
-    "license": "MIT",
-
-    "dependencies": {
-    },
-
-    "browserify": {
-        "transform": [ "brfs" ]
-    }
+  "name": "xnajs",
+  "version": "0.0.2",
+  "description": "WebGL game library",
+  "main": "xna.js",
+  "scripts": {
+    "build": "browserify src/xna.js --standalone XNAJS -o dist/xna.js"
+  },
+  "keywords": [
+    "webgl",
+    "xna",
+    "gamedev"
+  ],
+  "author": "Michał Skowronek",
+  "license": "MIT",
+  "dependencies": {},
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
+  "devDependencies": {
+    "brfs": "^1.4.0",
+    "browserify": "^10.2.3"
+  }
 }

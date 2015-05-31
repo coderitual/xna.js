@@ -20,7 +20,10 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
-var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE;
+var GLMAT_ARRAY_TYPE  = require('./common').GLMAT_ARRAY_TYPE;
+var vec3              = require('./vec3');
+var vec4              = require('./vec4');
+var mat3              = require('./mat3');
 
 /**
  * @class Quaternion
