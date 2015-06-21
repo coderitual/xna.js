@@ -327,7 +327,7 @@ var 2DLighting = Game.extend({
 
 });
 
-module.exports = MobileGame;
+module.exports = 2DLighting;
 ```
 
 *main.js:* 
