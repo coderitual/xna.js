@@ -6,9 +6,9 @@ Examples of use:
 * 2D Lighting: http://xnajs.com/examples/02/
 * Mobile game prototype: http://xnajs.com/ld32/release/
 
-How to use:
-(lighting-example.js)
-  // Core
+How to use (lighting-example.js):
+```javascript
+// Core
 var Game                = require('xnajs/game');
 var Pointer             = require('xnajs/input/pointer');
 var Keyboard            = require('xnajs/input/keyboard');
@@ -338,4 +338,4 @@ var MobileGame = Game.extend({
 
 module.exports = MobileGame;
 
-
+```
