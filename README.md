@@ -5,7 +5,7 @@ ___
 Live demos:
 * 2D Lighting - http://xnajs.com/examples/02/
 * Mobile game prototype - http://xnajs.com/ld32/release/
-
+___
 How to use:
 
 2d-lighting.js:
