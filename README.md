@@ -6,7 +6,10 @@ Live demos:
 * 2D Lighting - http://xnajs.com/examples/02/
 * Mobile game prototype - http://xnajs.com/ld32/release/
 
-How to use (2d-lighting-example.js):
+---
+How to use:
+
+2d-lighting.js:
 ```javascript
 // Core
 var Game                = require('xnajs/game');
@@ -28,7 +31,7 @@ var RenderTarget2D      = require('xnajs/graphics/render-target2d');
 var FpsMeter            = require('xnajs-components/fps-meter');
 var mat4                = require('xnajs/matrix/mat4');
 
-var MobileGame = Game.extend({
+var 2DLighting = Game.extend({
 
     initialize: function() {
         this.base();
@@ -325,17 +328,19 @@ var MobileGame = Game.extend({
 
 });
 
-//public static BlendState BlendBlack = new BlendState()
-//{
-//    ColorBlendFunction = BlendFunction.Add,
-//        ColorSourceBlend = Blend.One,
-//        ColorDestinationBlend = Blend.One,
-//
-//        AlphaBlendFunction = BlendFunction.Add,
-//        AlphaSourceBlend = Blend.SourceAlpha,
-//        AlphaDestinationBlend = Blend.One
-//};
-
 module.exports = MobileGame;
+```
 
+main.js: 
+```javascript
+'use strict';
+
+var 2DLighting = require('./2d-lighting');
+
+document.addEventListener('DOMContentLoaded', main, false);
+
+function main() {
+    var game = new 2DLighting('#game');
+    game.run();
+}
 ```
