@@ -2,13 +2,13 @@
 This is the first public version of xna.js. WebGL library strongly inspired by XNA/Monogame framework.
 The library is in the early stages. I'm writing it because I want to learn WebGL and create some demo. Still a lot to do here.
 ___
-Live demos:
+##Live demos:
 * 2D Lighting - http://xnajs.com/examples/02/
 * Mobile game prototype - http://xnajs.com/ld32/release/
 ___
-How to use:
+##How to use:
 
-2d-lighting.js:
+*2d-lighting.js:*
 ```javascript
 // Core
 var Game                = require('xnajs/game');
@@ -330,7 +330,7 @@ var 2DLighting = Game.extend({
 module.exports = MobileGame;
 ```
 
-main.js: 
+*main.js:* 
 ```javascript
 'use strict';
 
