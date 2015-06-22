@@ -8,7 +8,7 @@ The library is in the early stages. I'm writing it because I want to learn WebGL
 
 ###How to use:
 
-![Awesome xnajs example](http://xnajs.com/assets/xnajs-example-1.gif)
+![xnajs example](http://xnajs.com/assets/xjs.mp4)
 
 *2d-lighting.js:*
 ```javascript
