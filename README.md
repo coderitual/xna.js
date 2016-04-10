@@ -3,8 +3,12 @@ This is the first public version of xna.js. WebGL library strongly inspired by X
 The library is in the early stages. I'm writing it because I want to learn WebGL and create some demo. Still a lot to do here.
 
 ###Live demos:
-* 2D Lighting - http://xnajs.com/examples/02/
-* Mobile game prototype - http://xnajs.com/ld32/release/
+* Spritebatch - https://coderitual.github.io/xna.js/examples/simple/dist/
+![Basic](https://coderitual.github.io/xna.js/examples/images/basic.png)
+* Normalmap - https://coderitual.github.io/xna.js/examples/normal/dist/
+![Basic](https://coderitual.github.io/xna.js/examples/images/normal.png)
+* Mobile game - https://coderitual.github.io/xna.js/examples/game/dist/
+![Basic](https://coderitual.github.io/xna.js/examples/images/game.png)
 
 ###How to use:
 
@@ -330,7 +334,7 @@ var 2DLighting = Game.extend({
 module.exports = 2DLighting;
 ```
 
-*main.js:* 
+*main.js:*
 ```javascript
 'use strict';
 
