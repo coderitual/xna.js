@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+html, body {
+    padding: 0;
+    margin: 0;
+    border: none;
+    user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+    box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box;
+    touch-action: none; -ms-touch-action: none;
+
+    font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+    text-align: center;
+    color: #000;
+    /*background-color: #222;*/
+    /*background-image: url('/assets/checker2.bmp');*/
+}
+
+a {
+    color: #1570a6;
+    text-decoration: none;
+    transition: color .1s linear;
+}
+
+.logo {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: none;
+}
+
+a:hover, a:focus {
+    color: #083047;
+    text-decoration: underline;
+}
+
+#x-surface {
+    background-color: #000;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    /*z-index: 80;*/
+}
+
+body {
+  background-color: #1f2127;
+} 	
+
+/* for desktop */
+#x-surface.desktop {
+    bottom: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+#x-surface.mobile {
+  
+}
+
+
