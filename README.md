@@ -2,7 +2,7 @@
 This is the first public version of xna.js. WebGL library strongly inspired by XNA/Monogame framework.
 The library is in the early stages. I'm writing it because I want to learn WebGL and create some demo. Still a lot to do here.
 
-###Live demos:
+### Live demos:
 * Spritebatch - https://coderitual.github.io/xna.js/examples/simple/dist/
 ![Basic](https://coderitual.github.io/xna.js/examples/images/basic.png)
 * Normalmap - https://coderitual.github.io/xna.js/examples/normal/dist/
@@ -10,7 +10,7 @@ The library is in the early stages. I'm writing it because I want to learn WebGL
 * Mobile game - https://coderitual.github.io/xna.js/examples/game/dist/
 ![Basic](https://coderitual.github.io/xna.js/examples/images/game.png)
 
-###How to use:
+### How to use:
 
 *2d-lighting.js:*
 ```javascript
