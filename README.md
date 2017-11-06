@@ -5,7 +5,7 @@ xna.js
 
 ### Live demos:
 * Spritebatch - https://coderitual.github.io/xna.js/examples/simple/dist/
-![Basic](examples/images/basic.png)
+![Basic](examples/images/simple.png)
 * Normalmap - https://coderitual.github.io/xna.js/examples/normal/dist/
 ![Basic](examples/images/normal.png)
 * Mobile game - https://coderitual.github.io/xna.js/examples/game/dist/
