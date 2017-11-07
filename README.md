@@ -3,13 +3,12 @@ xna.js
 > This is the first public version of xna.js. WebGL library strongly inspired by XNA/Monogame framework.
 > The library is in the early stages. I'm writing it because I want to learn WebGL and create some demo. Still a lot to do here.
 
-### Live demos:
-* Spritebatch - https://coderitual.github.io/xna.js/examples/simple/dist/
-![Basic](examples/images/simple.png)
-* Normalmap - https://coderitual.github.io/xna.js/examples/normal/dist/
-![Basic](examples/images/normal.png)
-* Mobile game - https://coderitual.github.io/xna.js/examples/game/dist/
-![Basic](examples/images/game.png)
+<p align="center"><img src ="docs/example.gif"/></p>
+
+### Showcase:
+(Spritebatch)[https://coderitual.github.io/xna.js/examples/simple/dist/]
+(Normalmap)[https://coderitual.github.io/xna.js/examples/normal/dist/]
+(Mobile game)[https://coderitual.github.io/xna.js/examples/game/dist/]
 
 ### How to use:
 
@@ -388,3 +387,7 @@ function main() {
     game.run();
 }
 ```
+
+## License
+
+Odoo is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
