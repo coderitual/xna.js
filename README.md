@@ -7,7 +7,9 @@ xna.js
 
 ### Showcase:
 [Spritebatch](https://coderitual.github.io/xna.js/examples/simple/dist)
+
 [Normalmap](https://coderitual.github.io/xna.js/examples/normal/dist)
+
 [Mobile game](https://coderitual.github.io/xna.js/examples/game/dist)
 
 ### How to use:
